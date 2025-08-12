@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haven No. 8 | Proposal Template</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @media print {
+      body { background: white; color: black; }
+      .no-print { display: none; }
+      .proposal { box-shadow: none; border: 1px solid #ccc; }
+    }
+    
+    .proposal {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      color: var(--nocturne);
+      box-shadow: var(--shadow-luxury);
+      border-radius: var(--radius-haven);
+      overflow: hidden;
+    }
+    
+    .proposal-header {
+      background: var(--nocturne);
+      color: var(--haven-sand);
+      padding: var(--space-6);
+      text-align: center;
+    }
+    
+    .proposal-header h1 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-2);
+      color: var(--haven-sand);
+    }
+    
+    .proposal-header .subtitle {
+      font-size: var(--text-lg);
+      color: var(--pearl-mist);
+      font-weight: 300;
+    }
+    
+    .proposal-content {
+      padding: var(--space-6);
+    }
+    
+    .client-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .client-details h3 {
+      color: var(--nocturne);
+      margin-bottom: var(--space-2);
+    }
+    
+    .client-details p {
+      color: var(--nocturne);
+      margin-bottom: var(--space-1);
+    }
+    
+    .proposal-details h3 {
+      color: var(--nocturne);
+      margin-bottom: var(--space-2);
+    }
+    
+    .proposal-details p {
+      color: var(--nocturne);
+      margin-bottom: var(--space-1);
+    }
+    
+    .itinerary-section {
+      margin-bottom: var(--space-6);
+    }
+    
+    .itinerary-section h2 {
+      color: var(--nocturne);
+      margin-bottom: var(--space-3);
+      font-size: var(--text-2xl);
+    }
+    
+    .itinerary-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius-soft);
+      margin-bottom: var(--space-2);
+    }
+    
+    .itinerary-date {
+      font-weight: 500;
+      color: var(--champagne);
+    }
+    
+    .itinerary-description {
+      color: var(--nocturne);
+    }
+    
+    .itinerary-cost {
+      text-align: right;
+      font-weight: 500;
+      color: var(--nocturne);
+    }
+    
+    .total-section {
+      background: rgba(212, 175, 55, 0.05);
+      padding: var(--space-4);
+      border-radius: var(--radius-soft);
+      margin-top: var(--space-4);
+    }
+    
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-2);
+    }
+    
+    .total-row.final {
+      font-size: var(--text-lg);
+      font-weight: 500;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .terms-section {
+      margin-top: var(--space-6);
+      padding-top: var(--space-4);
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .terms-section h3 {
+      color: var(--nocturne);
+      margin-bottom: var(--space-2);
+    }
+    
+    .terms-section ul {
+      color: var(--nocturne);
+      padding-left: var(--space-4);
+    }
+    
+    .terms-section li {
+      margin-bottom: var(--space-1);
+    }
+    
+    .footer-note {
+      text-align: center;
+      color: var(--pearl-mist);
+      font-style: italic;
+      margin-top: var(--space-4);
+      font-size: var(--text-sm);
+    }
+    
+    .print-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn btn--primary print-button no-print" onclick="window.print()">Print Proposal</button>
+  
+  <div class="proposal">
+    <div class="proposal-header">
+      <h1>HAVEN <span style="font-size: 0.7em; font-variant: small-caps; font-weight: 300; letter-spacing: 0.2em;">No. 8</span></h1>
+      <p class="subtitle">A Private World, Impeccably Arranged</p>
+    </div>
+    
+    <div class="proposal-content">
+      <div class="client-info">
+        <div class="client-details">
+          <h3>Client Information</h3>
+          <p><strong>Name:</strong> <span id="client-name">[Client Name]</span></p>
+          <p><strong>Email:</strong> <span id="client-email">[client@email.com]</span></p>
+          <p><strong>Phone:</strong> <span id="client-phone">[+1 555 123 4567]</span></p>
+          <p><strong>Number of Guests:</strong> <span id="guest-count">[8]</span></p>
+        </div>
+        
+        <div class="proposal-details">
+          <h3>Proposal Details</h3>
+          <p><strong>Date:</strong> <span id="proposal-date">[December 15, 2024]</span></p>
+          <p><strong>Destination:</strong> <span id="destination">[Dubai]</span></p>
+          <p><strong>Duration:</strong> <span id="duration">[5 Days]</span></p>
+          <p><strong>Travel Dates:</strong> <span id="travel-dates">[November 9-13, 2024]</span></p>
+        </div>
+      </div>
+      
+      <div class="itinerary-section">
+        <h2>Proposed Itinerary</h2>
+        
+        <div class="itinerary-item">
+          <div class="itinerary-date">Day 1</div>
+          <div class="itinerary-description">
+            <strong>Arrival & Welcome</strong><br>
+            Airport transfer, hotel check-in, welcome dinner at exclusive restaurant
+          </div>
+          <div class="itinerary-cost">$2,500</div>
+        </div>
+        
+        <div class="itinerary-item">
+          <div class="itinerary-date">Day 2</div>
+          <div class="itinerary-description">
+            <strong>Desert Experience</strong><br>
+            Private desert camp, professional photographer, BBQ dinner, stargazing
+          </div>
+          <div class="itinerary-cost">$3,200</div>
+        </div>
+        
+        <div class="itinerary-item">
+          <div class="itinerary-date">Day 3</div>
+          <div class="itinerary-description">
+            <strong>Yacht Charter</strong><br>
+            Private yacht for all-girls party, jet ski activities, premium beverages, female DJ
+          </div>
+          <div class="itinerary-cost">$4,800</div>
+        </div>
+        
+        <div class="itinerary-item">
+          <div class="itinerary-date">Day 4</div>
+          <div class="itinerary-description">
+            <strong>Nightlife Experience</strong><br>
+            VIP access to exclusive clubs, bottle service, private transportation
+          </div>
+          <div class="itinerary-cost">$2,800</div>
+        </div>
+        
+        <div class="itinerary-item">
+          <div class="itinerary-date">Day 5</div>
+          <div class="itinerary-description">
+            <strong>Departure</strong><br>
+            Breakfast, airport transfer, farewell amenities
+          </div>
+          <div class="itinerary-cost">$1,200</div>
+        </div>
+      </div>
+      
+      <div class="total-section">
+        <div class="total-row">
+          <span>Subtotal:</span>
+          <span>$14,500</span>
+        </div>
+        <div class="total-row">
+          <span>Service Fee (15%):</span>
+          <span>$2,175</span>
+        </div>
+        <div class="total-row final">
+          <span><strong>Total Investment:</strong></span>
+          <span><strong>$16,675</strong></span>
+        </div>
+      </div>
+      
+      <div class="terms-section">
+        <h3>Terms & Conditions</h3>
+        <ul>
+          <li>50% deposit required to confirm booking</li>
+          <li>Remaining balance due 30 days prior to travel</li>
+          <li>All arrangements subject to availability</li>
+          <li>Cancellation policy: 90+ days (full refund), 60-89 days (75% refund), 30-59 days (50% refund)</li>
+          <li>All services include full discretion and privacy protection</li>
+        </ul>
+      </div>
+      
+      <div class="footer-note">
+        "Seamless access to singular moments. Your sanctuary, infinitely tailored."
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Simple form to customize the proposal
+    function customizeProposal() {
+      const clientName = prompt('Client Name:') || '[Client Name]';
+      const clientEmail = prompt('Client Email:') || '[client@email.com]';
+      const clientPhone = prompt('Client Phone:') || '[+1 555 123 4567]';
+      const guestCount = prompt('Number of Guests:') || '[8]';
+      const destination = prompt('Destination:') || '[Dubai]';
+      const travelDates = prompt('Travel Dates:') || '[November 9-13, 2024]';
+      
+      document.getElementById('client-name').textContent = clientName;
+      document.getElementById('client-email').textContent = clientEmail;
+      document.getElementById('client-phone').textContent = clientPhone;
+      document.getElementById('guest-count').textContent = guestCount;
+      document.getElementById('destination').textContent = destination;
+      document.getElementById('travel-dates').textContent = travelDates;
+      document.getElementById('proposal-date').textContent = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+    
+    // Auto-populate current date
+    document.getElementById('proposal-date').textContent = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  </script>
+</body>
+</html>

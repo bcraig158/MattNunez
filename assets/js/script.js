@@ -1,440 +1,720 @@
-// ===== HAVEN NO. 8 - LUXURY YACHTING WEBSITE =====
+// ===== HAVEN NO. 8 - LUXURY CONCIERGE WEBSITE =====
+// JavaScript with 8-Timing System and Sophisticated Interactions
 
-// Mobile navigation toggle
-const toggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-
-if (toggle && mobileNav) {
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    mobileNav.hidden = expanded;
-  });
-}
-
-// Intersection Observer for reveal animations
-const io = new IntersectionObserver((entries) => {
-  for (const e of entries) {
-    if (e.isIntersecting) {
-      e.target.classList.add('is-visible');
-    }
+class MonogramController {
+  constructor() {
+    this.brand = document.querySelector('.brand');
+    this.monogram = this.brand?.querySelector('svg');
+    this.init();
   }
-}, { threshold: 0.2 });
 
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// Header background on scroll with refined transitions
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.site-header');
-  if (header) {
-    if (window.scrollY > 100) {
-      header.style.background = 'rgba(10, 10, 10, 0.98)';
-      header.style.borderBottom = '1px solid rgba(212, 175, 55, 0.2)';
-    } else {
-      header.style.background = 'rgba(10, 10, 10, 0.95)';
-      header.style.borderBottom = '1px solid rgba(245, 243, 240, 0.1)';
-    }
-  }
-});
-
-// Active navigation link highlighting
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    const sectionHeight = section.offsetHeight;
-    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      const headerHeight = document.querySelector('.site-header')?.offsetHeight || 80;
-      const targetPosition = target.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Sophisticated form handling
-const reservationForm = document.querySelector('.form');
-if (reservationForm) {
-  reservationForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+  init() {
+    if (!this.brand || !this.monogram) return;
     
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+    // Add sophisticated hover animations
+    this.brand.addEventListener('mouseenter', () => this.animateMonogram('enter'));
+    this.brand.addEventListener('mouseleave', () => this.animateMonogram('leave'));
     
-    // Enhanced validation
-    const requiredFields = ['name', 'email'];
-    const missingFields = requiredFields.filter(field => !data[field]);
-    
-    if (missingFields.length > 0) {
-      showNotification('Please complete all required fields.', 'error');
-      return;
-    }
-    
-    if (!isValidEmail(data.email)) {
-      showNotification('Please enter a valid email address.', 'error');
-      return;
-    }
-    
-    // Simulate sophisticated form submission
-    showNotification('Crafting your sanctuary experience...', 'info');
-    
-    // Simulate API call with refined timing
+    // Add subtle breathing animation on page load
     setTimeout(() => {
-      showNotification('Your request has been received. Our experience curators will contact you within 24 hours.', 'success');
-      this.reset();
-    }, 3000);
-  });
-}
-
-// Email validation function
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-// Refined notification system
-function showNotification(message, type = 'info') {
-  // Remove existing notifications
-  const existingNotification = document.querySelector('.notification');
-  if (existingNotification) {
-    existingNotification.remove();
+      this.animateMonogram('breathe');
+    }, 1000);
+    
+    // Check for prosperity moment on load
+    this.checkProsperityMoment();
   }
-  
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.innerHTML = `
-    <div class="notification-content">
-      <span class="notification-message">${message}</span>
-      <button class="notification-close">&times;</button>
-    </div>
-  `;
-  
-  // Enhanced styling with brand colors
-  const colors = {
-    success: { bg: '#4a7c59', border: '#3d6b4a' }, // Jade 8
-    error: '#d32f2f',
-    info: '#1976d2'
-  };
-  
-  const color = colors[type] || colors.info;
-  
-  notification.style.cssText = `
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: ${typeof color === 'object' ? color.bg : color};
-    color: white;
-    padding: 1.5rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    z-index: 10000;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    max-width: 450px;
-    border-left: 4px solid ${typeof color === 'object' ? color.border : color};
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-  `;
-  
-  // Add to page
-  document.body.appendChild(notification);
-  
-  // Animate in
-  setTimeout(() => {
-    notification.style.transform = 'translateX(0)';
-  }, 100);
-  
-  // Close button functionality
-  const closeBtn = notification.querySelector('.notification-close');
-  closeBtn.addEventListener('click', () => {
-    notification.style.transform = 'translateX(100%)';
-    setTimeout(() => notification.remove(), 400);
-  });
-  
-  // Auto remove after 6 seconds
-  setTimeout(() => {
-    if (notification.parentNode) {
-      notification.style.transform = 'translateX(100%)';
-      setTimeout(() => notification.remove(), 400);
+
+  checkProsperityMoment() {
+    const now = new Date();
+    const isProsperityMoment = now.getHours() === 8 && now.getMinutes() === 8;
+    
+    if (isProsperityMoment) {
+      this.activateProsperityState();
     }
-  }, 6000);
-}
-
-// Refined parallax effect for hero section
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    const rate = scrolled * -0.2; // More subtle movement
-    hero.style.transform = `translateY(${rate}px)`;
   }
-});
 
-// Sophisticated loading animation
-window.addEventListener('load', () => {
-  document.body.classList.add('loaded');
-});
-
-// Enhanced loading state with brand messaging
-const loadingStyles = document.createElement('style');
-loadingStyles.textContent = `
-  body:not(.loaded) {
-    overflow: hidden;
-  }
-  
-  body:not(.loaded)::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  body:not(.loaded)::after {
-    content: 'HAVEN No. 8';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #d4af37;
-    font-size: 2rem;
-    font-weight: 300;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 0.2em;
-    z-index: 10000;
-  }
-  
-  /* Infinity loading animation */
-  body:not(.loaded)::before {
-    content: '';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    border-top: 2px solid #d4af37;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    z-index: 10001;
-  }
-  
-  @keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-`;
-document.head.appendChild(loadingStyles);
-
-// Refined card hover effects
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-4px) scale(1.01)';
-  });
-  
-  card.addEventListener('mouseleave', function() {
-    this.style.transform = 'translateY(0) scale(1)';
-  });
-});
-
-// Reservation: prefill yacht from query parameters
-const params = new URLSearchParams(location.search);
-const yacht = params.get('yacht');
-if (yacht && document.getElementById('yachtField')) {
-  document.getElementById('yachtField').value = yacht;
-}
-
-// Sophisticated form handler for forms without action
-document.addEventListener('submit', (e) => {
-  const form = e.target.closest('form[action="#"]');
-  if (!form) return;
-  
-  // Don't prevent default if it's a reservation form (handled above)
-  if (form.classList.contains('form')) return;
-  
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(form).entries());
-  showNotification('Demo mode. Form data: ' + JSON.stringify(data, null, 2), 'info');
-});
-
-// Enhanced counter animation for statistics
-function animateCounter(element, target, duration = 2500) {
-  let start = 0;
-  const increment = target / (duration / 16);
-  
-  const timer = setInterval(() => {
-    start += increment;
-    if (start >= target) {
-      element.textContent = target + '+';
-      clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(start) + '+';
+  activateProsperityState() {
+    this.brand.classList.add('prosperity');
+    const prosperityState = this.monogram.querySelector('#prosperityState');
+    if (prosperityState) {
+      prosperityState.style.opacity = '1';
     }
-  }, 16);
-}
-
-// Animate stats when they come into view
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const statNumber = entry.target.querySelector('h4');
-      if (statNumber) {
-        const target = parseInt(statNumber.textContent);
-        animateCounter(statNumber, target);
-        statsObserver.unobserve(entry.target);
+    
+    // Remove prosperity state after 8 seconds
+    setTimeout(() => {
+      this.brand.classList.remove('prosperity');
+      if (prosperityState) {
+        prosperityState.style.opacity = '0';
       }
-    }
-  });
-}, { threshold: 0.5 });
+    }, 8000);
+  }
 
-document.querySelectorAll('.stat').forEach(stat => {
-  statsObserver.observe(stat);
-});
-
-// Enhanced pricing calculation with brand sophistication
-function calculateEstimatedPrice(guests, duration, destination) {
-  const basePrice = 8000; // Elevated base price for luxury positioning
-  const guestMultiplier = Math.max(1, guests / 8); // Price increases with more guests
-  const durationDiscount = duration > 7 ? 0.9 : 1; // 10% discount for 7+ days
-  const destinationMultiplier = {
-    'mediterranean': 1.3,
-    'caribbean': 1.2,
-    'french-riviera': 1.4,
-    'dubai': 1.5
-  }[destination] || 1;
-  
-  return Math.round(basePrice * guestMultiplier * duration * durationDiscount * destinationMultiplier);
-}
-
-// Add price estimation to reservation forms
-const guestsInput = document.getElementById('guests');
-const durationInput = document.getElementById('duration');
-const destinationSelect = document.getElementById('destination');
-
-function updatePriceEstimate() {
-  if (guestsInput && durationInput && destinationSelect) {
-    const guests = parseInt(guestsInput.value) || 0;
-    const duration = parseInt(durationInput.value) || 0;
-    const destination = destinationSelect.value;
+  animateMonogram(state) {
+    const hoverState = this.monogram.querySelector('#hoverState');
+    const mainMonogram = this.monogram.querySelector('#monogram');
     
-    if (guests > 0 && duration > 0 && destination) {
-      const estimatedPrice = calculateEstimatedPrice(guests, duration, destination);
-      showNotification(`Estimated investment: $${estimatedPrice.toLocaleString()} USD`, 'info');
+    if (!hoverState || !mainMonogram) return;
+    
+    switch(state) {
+      case 'enter':
+        // Reveal infinity curves
+        hoverState.style.opacity = '1';
+        hoverState.style.transition = 'opacity 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
+        // Subtle scale and rotation
+        mainMonogram.style.transform = 'scale(1.05) rotate(2deg)';
+        mainMonogram.style.transition = 'transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        break;
+        
+      case 'leave':
+        // Hide infinity curves
+        hoverState.style.opacity = '0';
+        hoverState.style.transition = 'opacity 0.24s ease-out';
+        
+        // Return to normal
+        mainMonogram.style.transform = 'scale(1) rotate(0deg)';
+        mainMonogram.style.transition = 'transform 0.24s ease-out';
+        break;
+        
+      case 'breathe':
+        // Subtle breathing animation
+        mainMonogram.style.transform = 'scale(1.02)';
+        mainMonogram.style.transition = 'transform 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
+        setTimeout(() => {
+          mainMonogram.style.transform = 'scale(1)';
+          mainMonogram.style.transition = 'transform 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }, 480);
+        break;
     }
   }
 }
 
-if (guestsInput && durationInput && destinationSelect) {
-  guestsInput.addEventListener('change', updatePriceEstimate);
-  durationInput.addEventListener('change', updatePriceEstimate);
-  destinationSelect.addEventListener('change', updatePriceEstimate);
-}
+class HeaderController {
+  constructor() {
+    this.header = document.querySelector('.site-header');
+    this.navToggle = document.querySelector('.nav-toggle');
+    this.mobileNav = document.querySelector('#mobile-nav');
+    this.lastScrollY = 0;
+    this.scrollTimeout = null;
+    this.init();
+  }
 
-// Enhanced date picker for reservation forms
-const startDateInput = document.getElementById('start-date');
-if (startDateInput) {
-  const today = new Date();
-  const minDate = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000)); // 30 days from now
-  startDateInput.min = minDate.toISOString().split('T')[0];
-  
-  startDateInput.addEventListener('change', function() {
-    const selectedDate = new Date(this.value);
-    const maxDate = new Date(selectedDate.getTime() + (365 * 24 * 60 * 60 * 1000)); // 1 year from selected date
-    this.max = maxDate.toISOString().split('T')[0];
-  });
-}
+  init() {
+    if (!this.header) return;
+    
+    this.handleScroll();
+    this.handleMobileNav();
+    window.addEventListener('scroll', throttle(() => this.handleScroll(), 16));
+  }
 
-// Sophisticated FAQ accordion functionality
-document.querySelectorAll('.faq').forEach(faq => {
-  const summary = faq.querySelector('summary');
-  if (summary) {
-    summary.addEventListener('click', (e) => {
-      e.preventDefault();
-      faq.toggleAttribute('open');
+  handleScroll() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 50) {
+      this.header.classList.add('scrolled');
+    } else {
+      this.header.classList.remove('scrolled');
+    }
+    
+    // Add subtle parallax effect to header with debouncing
+    clearTimeout(this.scrollTimeout);
+    this.scrollTimeout = setTimeout(() => {
+      if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
+        this.header.style.transform = 'translateY(-100%)';
+      } else {
+        this.header.style.transform = 'translateY(0)';
+      }
+      this.lastScrollY = currentScrollY;
+    }, 100);
+  }
+
+  handleMobileNav() {
+    if (!this.navToggle || !this.mobileNav) return;
+
+    this.navToggle.addEventListener('click', () => {
+      const isExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
+      this.navToggle.setAttribute('aria-expanded', !isExpanded);
+      this.mobileNav.hidden = isExpanded;
+      this.mobileNav.classList.toggle('active');
     });
   }
-});
+}
 
-// Enhanced reveal animations for sections
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
+class SmoothScroller {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+}
+
+class RevealAnimations {
+  constructor() {
+    this.revealElements = document.querySelectorAll('.reveal');
+    this.init();
+  }
+
+  init() {
+    if (this.revealElements.length === 0) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          // Add staggered delay for multiple elements
+          const index = Array.from(this.revealElements).indexOf(entry.target);
+          entry.target.style.transitionDelay = `${index * 0.08}s`;
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    this.revealElements.forEach(el => observer.observe(el));
+  }
+}
+
+class FormHandler {
+  constructor() {
+    this.forms = document.querySelectorAll('form');
+    this.init();
+  }
+
+  init() {
+    this.forms.forEach(form => this.setupForm(form));
+  }
+
+  setupForm(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.handleFormSubmission(form);
+    });
+
+    // Add floating labels and real-time validation
+    this.setupFloatingLabels(form);
+    this.setupRealTimeValidation(form);
+  }
+
+  setupFloatingLabels(form) {
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      const label = input.previousElementSibling;
+      if (label && label.tagName === 'SPAN') {
+        // Create floating label effect
+        input.addEventListener('focus', () => {
+          label.style.transform = 'translateY(-20px) scale(0.8)';
+          label.style.color = 'var(--champagne)';
+        });
+        
+        input.addEventListener('blur', () => {
+          if (!input.value) {
+            label.style.transform = 'translateY(0) scale(1)';
+            label.style.color = 'var(--sand)';
+          }
+        });
+      }
+    });
+  }
+
+  setupRealTimeValidation(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        this.validateField(input);
+      });
+    });
+  }
+
+  validateField(field) {
+    const isValid = field.checkValidity();
+    field.style.borderColor = isValid ? 'var(--champagne)' : 'rgba(245, 243, 240, 0.2)';
+    
+    if (isValid) {
+      field.style.transform = 'translateY(-1px)';
+      field.style.transition = 'all 0.24s ease';
+    } else {
+      field.style.transform = 'translateY(0)';
     }
-  });
-}, { threshold: 0.1 });
+  }
 
-document.querySelectorAll('section').forEach(section => {
-  revealObserver.observe(section);
+  handleFormSubmission(form) {
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+    
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission with 8-timing
+    setTimeout(() => {
+      // Check for 08:08 prosperity moment
+      const now = new Date();
+      const isProsperityMoment = now.getHours() === 8 && now.getMinutes() === 8;
+      
+      if (isProsperityMoment) {
+        this.showNotification('Confirmed at 08:08. Your request has been received with prosperity.', 'prosperity');
+        // Activate prosperity state on monogram
+        const brand = document.querySelector('.brand');
+        if (brand) {
+          brand.classList.add('prosperity');
+          setTimeout(() => brand.classList.remove('prosperity'), 8000);
+        }
+      } else {
+        this.showNotification('Message sent successfully', 'success');
+      }
+      
+      form.reset();
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      
+      // Reset floating labels
+      const inputs = form.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        const label = input.previousElementSibling;
+        if (label && label.tagName === 'SPAN') {
+          label.style.transform = 'translateY(0) scale(1)';
+          label.style.color = 'var(--sand)';
+        }
+      });
+    }, 800); // 8-timing: 0.8s
+  }
+
+  showNotification(message, type) {
+    if (window.notificationSystem) {
+      window.notificationSystem.showNotification(message, type);
+    }
+  }
+}
+
+class NotificationSystem {
+  constructor() {
+    this.notifications = [];
+    this.init();
+    window.notificationSystem = this;
+  }
+
+  init() {
+    // Create notification container
+    this.container = document.createElement('div');
+    this.container.className = 'notification-container';
+    this.container.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 32px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    `;
+    document.body.appendChild(this.container);
+  }
+
+  showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification--${type}`;
+    
+    // Determine colors based on type
+    let bgColor, textColor;
+    switch(type) {
+      case 'prosperity':
+        bgColor = 'var(--jade-8)';
+        textColor = 'var(--sand)';
+        break;
+      case 'success':
+        bgColor = 'var(--jade-8)';
+        textColor = 'var(--sand)';
+        break;
+      default:
+        bgColor = 'var(--champagne)';
+        textColor = 'var(--ink)';
+    }
+    
+    notification.style.cssText = `
+      background: ${bgColor};
+      color: ${textColor};
+      padding: 16px 24px;
+      border-radius: var(--radius-haven);
+      box-shadow: var(--shadow-medium);
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    `;
+    notification.textContent = message;
+    
+    this.container.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+      notification.style.transform = 'translateX(0)';
+    }, 24); // 8-timing: 0.024s
+    
+    // Add prosperity pulse for prosperity type
+    if (type === 'prosperity') {
+      notification.classList.add('prosperity-success');
+    }
+    
+    // Auto remove after 4.8s (8-timing)
+    setTimeout(() => {
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (this.container.contains(notification)) {
+          this.container.removeChild(notification);
+        }
+      }, 320); // 8-timing: 0.32s
+    }, 4800);
+  }
+}
+
+class CardInteractions {
+  constructor() {
+    this.cards = document.querySelectorAll('.card');
+    this.init();
+  }
+
+  init() {
+    this.cards.forEach(card => {
+      this.setupCardHover(card);
+      this.setupCardClick(card);
+    });
+  }
+
+  setupCardHover(card) {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-8px) scale(1.02)';
+      card.style.transition = 'all 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+      card.style.transition = 'all 0.24s ease-out';
+    });
+  }
+
+  setupCardClick(card) {
+    card.addEventListener('click', (e) => {
+      // Create ripple effect
+      const ripple = document.createElement('div');
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.3);
+        transform: scale(0);
+        animation: ripple 0.48s linear;
+        pointer-events: none;
+      `;
+      
+      const rect = card.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      
+      card.appendChild(ripple);
+      
+      setTimeout(() => {
+        if (card.contains(ripple)) {
+          card.removeChild(ripple);
+        }
+      }, 480); // 8-timing: 0.48s
+    });
+  }
+}
+
+class InfinityDivider {
+  constructor() {
+    this.dividers = document.querySelectorAll('.infinity-divider');
+    this.init();
+  }
+
+  init() {
+    this.dividers.forEach(divider => {
+      // Add SVG infinity divider
+      const svg = document.createElement('img');
+      svg.src = '/assets/infinity-divider.svg';
+      svg.alt = '';
+      svg.style.cssText = `
+        width: 120px;
+        height: 2px;
+        transition: width 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      `;
+      
+      // Add error handling for missing SVG
+      svg.onerror = () => {
+        // Fallback to CSS-based divider
+        divider.innerHTML = '<div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--champagne), transparent); border-radius: 1px;"></div>';
+      };
+      
+      divider.appendChild(svg);
+      
+      // Add hover animation
+      divider.addEventListener('mouseenter', () => {
+        const dividerElement = divider.querySelector('img') || divider.querySelector('div');
+        if (dividerElement) {
+          dividerElement.style.width = '180px';
+        }
+      });
+      
+      divider.addEventListener('mouseleave', () => {
+        const dividerElement = divider.querySelector('img') || divider.querySelector('div');
+        if (dividerElement) {
+          dividerElement.style.width = '120px';
+        }
+      });
+    });
+  }
+}
+
+class HoverUnderlineSystem {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Add hover underline to navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.classList.add('hover-underline');
+    });
+
+    // Add hover underline to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+      btn.classList.add('hover-underline');
+    });
+
+    // Add hover underline to footer links
+    const footerLinks = document.querySelectorAll('.footer-inner a');
+    footerLinks.forEach(link => {
+      link.classList.add('hover-underline');
+    });
+  }
+}
+
+class LoadingAnimation {
+  constructor() {
+    this.loader = document.querySelector('.loading-screen');
+    this.init();
+  }
+
+  init() {
+    if (!this.loader) return;
+    
+    // Hide loader after page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.hideLoader();
+      }, 800); // 8-timing: 0.8s
+    });
+  }
+
+  hideLoader() {
+    this.loader.style.opacity = '0';
+    this.loader.style.transition = 'opacity 0.48s ease-out';
+    
+    setTimeout(() => {
+      this.loader.style.display = 'none';
+    }, 480); // 8-timing: 0.48s
+  }
+}
+
+class PerformanceOptimizer {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.setupLazyLoading();
+    this.setupScrollOptimization();
+    this.setupIntersectionObserver();
+    this.setupImageOptimization();
+  }
+
+  setupLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    if (images.length === 0) return;
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+  }
+
+  setupScrollOptimization() {
+    let ticking = false;
+    
+    const updateOnScroll = () => {
+      // Optimize scroll-based animations
+      ticking = false;
+    };
+    
+    const requestTick = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateOnScroll);
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+  }
+
+  setupIntersectionObserver() {
+    // Optimize all intersection observers
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    // Create a shared observer for better performance
+    const sharedObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements that need intersection detection
+    document.querySelectorAll('.card, .timeline-item').forEach(el => {
+      sharedObserver.observe(el);
+    });
+  }
+
+  setupImageOptimization() {
+    // Add error handling for images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        // Add fallback styling for broken images
+        img.style.background = 'rgba(245, 243, 240, 0.1)';
+        img.style.border = '1px solid rgba(245, 243, 240, 0.2)';
+        img.style.display = 'flex';
+        img.style.alignItems = 'center';
+        img.style.justifyContent = 'center';
+        img.style.minHeight = '200px';
+        img.style.color = 'var(--pearl)';
+        img.style.fontSize = 'var(--text-sm)';
+        img.alt = 'Image not available';
+      });
+    });
+  }
+}
+
+// Enhanced utility functions with 8-timing
+function debounce(func, wait = 320) { // 8-timing: 0.32s
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+function throttle(func, limit = 240) { // 8-timing: 0.24s
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Initialize all controllers when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize controllers with 8-timing
+  setTimeout(() => new MonogramController(), 24); // 0.024s
+  setTimeout(() => new HeaderController(), 48); // 0.048s
+  setTimeout(() => new SmoothScroller(), 72); // 0.072s
+  setTimeout(() => new RevealAnimations(), 96); // 0.096s
+  setTimeout(() => new FormHandler(), 120); // 0.12s
+  setTimeout(() => new NotificationSystem(), 144); // 0.144s
+  setTimeout(() => new CardInteractions(), 168); // 0.168s
+  setTimeout(() => new InfinityDivider(), 192); // 0.192s
+  setTimeout(() => new HoverUnderlineSystem(), 216); // 0.216s
+  setTimeout(() => new LoadingAnimation(), 240); // 0.24s
+  setTimeout(() => new PerformanceOptimizer(), 264); // 0.264s
 });
 
-// Refined reveal animation CSS
-const revealStyles = document.createElement('style');
-revealStyles.textContent = `
-  section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
+// Global utility functions
+window.HavenNo8 = {
+  showNotification: (message, type) => {
+    if (window.notificationSystem) {
+      window.notificationSystem.showNotification(message, type);
+    }
+  },
   
-  section.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  debounce,
+  throttle,
   
-  .hero {
-    opacity: 1;
-    transform: none;
+  // 8-timing utility
+  timing: {
+    fast: 240,
+    smooth: 320,
+    slow: 480,
+    luxury: 640
+  }
+};
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
   }
 `;
-document.head.appendChild(revealStyles);
 
-// Infinity divider animation
-document.querySelectorAll('.infinity-divider').forEach(divider => {
-  const line = divider.querySelector('::before');
-  if (line) {
-    divider.addEventListener('mouseenter', () => {
-      divider.style.transform = 'scaleX(1.1)';
-    });
-    
-    divider.addEventListener('mouseleave', () => {
-      divider.style.transform = 'scaleX(1)';
-    });
-  }
-});
+document.head.appendChild(style);
 
-// Sophisticated console log
-console.log('Haven No. 8 - A private world, impeccably arranged 🛥️✨');
+// Console branding
+console.log(`
+%cHAVEN No. 8%c
+%cLuxury Concierge Services%c
+%cSeamless access to singular moments.%c
+
+`, 
+'color: #d4af37; font-size: 24px; font-weight: bold; font-family: serif;',
+'color: #f5f3f0; font-size: 14px;',
+'color: #4a7c59; font-size: 16px; font-weight: 300;',
+'color: #f5f3f0; font-size: 14px;',
+'color: #fafafa; font-size: 12px; font-style: italic;'
+);

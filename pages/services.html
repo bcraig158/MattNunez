@@ -3,111 +3,423 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services — Luxury Yachting</title>
-  <meta name="description" content="Concierge, charters, experiences, and nightlife with full discretion." />
-  <meta property="og:title" content="Services — Luxury Yachting" />
-  <meta property="og:description" content="Concierge, charters, experiences, and nightlife with full discretion." />
+  <title>Services — Haven No. 8</title>
+  <meta name="description" content="Comprehensive luxury concierge services from travel planning to exclusive experiences. Your sanctuary, infinitely tailored." />
+  <meta property="og:title" content="Services — Haven No. 8" />
+  <meta property="og:description" content="Comprehensive luxury concierge services from travel planning to exclusive experiences." />
   <meta property="og:image" content="/assets/images/IMG_0888.jpeg" />
   <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
   <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Timeline System with ∞ Path */
+    .timeline-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-64) 0;
+    }
+
+    .timeline-path {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        var(--champagne) 20%, 
+        var(--champagne) 80%, 
+        transparent 100%
+      );
+      opacity: 0.3;
+    }
+
+    .timeline-path::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 4px;
+      height: 4px;
+      background: var(--champagne);
+      border-radius: 50%;
+      animation: timelinePulse 2.4s infinite var(--ease-smooth);
+    }
+
+    .timeline-path::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -1px;
+      width: 4px;
+      height: 4px;
+      background: var(--champagne);
+      border-radius: 50%;
+      animation: timelinePulse 2.4s infinite var(--ease-smooth);
+      animation-delay: 1.2s;
+    }
+
+    @keyframes timelinePulse {
+      0%, 100% { 
+        transform: scale(1); 
+        opacity: 1;
+      }
+      50% { 
+        transform: scale(1.5); 
+        opacity: 0.5;
+      }
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-48);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all var(--timing-slow) var(--ease-smooth);
+    }
+
+    .timeline-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: 50%;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      padding-left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      background: var(--champagne);
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      box-shadow: 0 0 0 2px var(--champagne);
+      transition: all var(--timing-smooth) var(--ease-smooth);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -6px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -6px;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      transform: scale(1.5);
+      box-shadow: 0 0 0 4px var(--champagne);
+    }
+
+    .timeline-content {
+      background: linear-gradient(180deg, rgba(245, 243, 240, 0.05), rgba(245, 243, 240, 0.02));
+      border: 1px solid rgba(245, 243, 240, 0.1);
+      border-radius: var(--radius-haven);
+      padding: var(--space-24);
+      backdrop-filter: blur(10px);
+      transition: all var(--timing-smooth) var(--ease-smooth);
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--champagne);
+    }
+
+    .timeline-date {
+      font-size: var(--text-sm);
+      color: var(--champagne);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-08);
+    }
+
+    .timeline-title {
+      font-size: var(--text-lg);
+      color: var(--sand);
+      font-weight: 400;
+      margin-bottom: var(--space-08);
+    }
+
+    .timeline-description {
+      color: var(--pearl);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    /* Service Cards with Enhanced Hover */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      transition: all var(--timing-smooth) var(--ease-smooth);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(212, 175, 55, 0.1), 
+        transparent
+      );
+      transition: left var(--timing-slow) var(--ease-smooth);
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Enhanced CTA with ∞ Underline */
+    .cta-infinity {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cta-infinity::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--champagne);
+      transition: width var(--timing-smooth) var(--ease-smooth);
+      border-radius: 1px;
+    }
+
+    .cta-infinity:hover::after {
+      width: 100%;
+    }
+
+    /* Prosperity States for Success */
+    .prosperity-highlight {
+      color: var(--jade-8);
+      font-weight: 400;
+    }
+
+    .prosperity-border {
+      border-color: var(--jade-8) !important;
+    }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="/">
-      <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/>
-      <span>LUXURY YACHTING</span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link active" href="/pages/services.html">Services</a>
-      <a class="nav-link" href="/pages/yachts.html">Yachts</a>
-      <a class="nav-link" href="/pages/about.html">About</a>
-      <a class="nav-link" href="/pages/reservation.html">Quick Reservation</a>
-      <a class="nav-link" href="/pages/contact.html">Contact</a>
-    </nav>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
-      <span class="sr-only">Menu</span>☰
-    </button>
-  </div>
-  <nav id="mobile-nav" class="mobile-nav" hidden>
-    <a href="/pages/services.html">Services</a>
-    <a href="/pages/yachts.html">Yachts</a>
-    <a href="/pages/about.html">About</a>
-    <a href="/pages/reservation.html">Quick Reservation</a>
-    <a href="/pages/contact.html">Contact</a>
-  </nav>
-</header>
-
-<main class="section">
-  <div class="container">
-    <h1>Our Services</h1>
-    <p class="muted">Comprehensive luxury experiences designed to exceed your expectations. From private charters to bespoke itineraries, we handle every detail with precision and discretion.</p>
-    
-    <div class="grid grid-3">
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/VLA_7432.JPG" alt="Private yacht charter"/>
-        <h3>Private Yacht Charters</h3>
-        <p>Day charters or multi‑day escapes with catering, crew, and tailored routes. Experience unparalleled luxury aboard our exclusive fleet.</p>
-      </article>
-      
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/IMG_5117.jpeg" alt="Itineraries and travel"/>
-        <h3>Itineraries & Travel</h3>
-        <p>Door‑to‑door planning—flights, hotels, transfers—curated to your pace. We handle every detail of your journey.</p>
-      </article>
-      
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/IMG_5047.heic" alt="Desert and adventure"/>
-        <h3>Desert & Adventure</h3>
-        <p>Camp setup, photographer, guided dunes—sunrise to starlight. Experience the thrill of desert adventures.</p>
-      </article>
-      
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/IMG_8284.heic" alt="Nightlife and events"/>
-        <h3>Nightlife & Events</h3>
-        <p>VIP entry, tables, and DJs. Your group, your vibe—no friction. We make your night unforgettable.</p>
-      </article>
-      
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/IMG_8634.heic" alt="Photography services"/>
-        <h3>Photography</h3>
-        <p>On‑call professionals capturing the moments without intruding. Preserve your memories with stunning imagery.</p>
-      </article>
-      
-      <article class="card reveal">
-        <img class="card-img" src="/assets/images/IMG_6771.jpg" alt="Custom requests"/>
-        <h3>Custom Requests</h3>
-        <p>If you can imagine it, we'll orchestrate it—discreetly. No request is too unique or challenging.</p>
-      </article>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/>
+        <span>HAVEN <span style="font-size: 0.7em; font-variant: small-caps; font-weight: 300; letter-spacing: 0.2em;">No. 8</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="/pages/services.html">Services</a>
+        <a class="nav-link" href="/pages/about.html">About</a>
+        <a class="nav-link" href="/pages/client-request.html">Client Request</a>
+        <a class="nav-link" href="/pages/portal.html">Client Portal</a>
+        <a class="nav-link" href="/pages/contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="sr-only">Menu</span>☰
+      </button>
     </div>
-    
-    <div class="cta-banner" style="margin-top: 4rem;">
-      <div>
-        <h2>Ready to Experience Luxury?</h2>
-        <p class="muted">Contact us to discuss your specific requirements and let us craft the perfect experience for you.</p>
+    <nav id="mobile-nav" class="mobile-nav" hidden>
+      <a href="/">Home</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/client-request.html">Client Request</a>
+      <a href="/pages/portal.html">Client Portal</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="section-subtitle">Comprehensive luxury concierge services designed to create seamless, unforgettable experiences.</p>
+
+      <div class="infinity-divider"></div>
+
+      <!-- Signature Experiences -->
+      <section>
+        <h2 class="section-title">Signature Experiences</h2>
+        <div class="grid grid-3">
+          <div class="card service-card reveal">
+            <h3>Private Yacht Charters</h3>
+            <p>Exclusive access to the world's most prestigious yachts. From intimate gatherings to grand celebrations, we handle every detail with precision.</p>
+            <ul style="list-style: none; padding: 0; margin-top: var(--space-16);">
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Professional crew & catering</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Custom itineraries</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Water sports & activities</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card service-card reveal">
+            <h3>Desert Experiences</h3>
+            <p>Transformative desert adventures with luxury camping, stargazing, and cultural immersion. Experience the magic of the Arabian desert.</p>
+            <ul style="list-style: none; padding: 0; margin-top: var(--space-16);">
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Luxury desert camps</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Professional photography</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Cultural experiences</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card service-card reveal">
+            <h3>Nightlife & Entertainment</h3>
+            <p>Access to the most exclusive clubs, restaurants, and entertainment venues. VIP treatment with complete discretion and privacy.</p>
+            <ul style="list-style: none; padding: 0; margin-top: var(--space-16);">
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>VIP table reservations</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Bottle service</span>
+              </li>
+              <li style="margin-bottom: var(--space-08); display: flex; align-items: center; gap: var(--space-08);">
+                <span style="color: var(--champagne);">✓</span>
+                <span>Private transportation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="infinity-divider"></div>
+
+      <!-- Our Process Timeline -->
+      <section>
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-subtitle">A seamless journey from initial consultation to unforgettable experience.</p>
+        
+        <div class="timeline-container">
+          <div class="timeline-path"></div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Step 1</div>
+              <div class="timeline-title">Initial Consultation</div>
+              <div class="timeline-description">We begin with a detailed conversation to understand your vision, preferences, and requirements. This foundation ensures every detail is perfectly aligned with your expectations.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Step 2</div>
+              <div class="timeline-title">Custom Proposal</div>
+              <div class="timeline-description">Within 24 hours, you'll receive a comprehensive proposal tailored to your specifications. Every element is carefully considered and presented with transparent pricing.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Step 3</div>
+              <div class="timeline-title">Refinement & Confirmation</div>
+              <div class="timeline-description">We work together to refine every detail until the experience is perfect. Once confirmed, we handle all arrangements with complete discretion.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Step 4</div>
+              <div class="timeline-title">Experience Execution</div>
+              <div class="timeline-description">Your experience unfolds seamlessly with our team managing every detail behind the scenes. You simply enjoy the moment while we ensure perfection.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Step 5</div>
+              <div class="timeline-title">Follow-up & Planning</div>
+              <div class="timeline-description">After your experience, we follow up to ensure everything exceeded expectations and begin planning your next adventure.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="infinity-divider"></div>
+
+      <!-- CTA Section -->
+      <div class="cta-banner">
+        <div>
+          <h2>Ready to Begin Your Journey?</h2>
+          <p class="muted">Let's craft your perfect experience. Contact us to start designing your sanctuary adventure.</p>
+        </div>
+        <a class="btn btn--primary cta-infinity" href="/pages/client-request.html">Request Access</a>
       </div>
-      <a class="btn btn--primary" href="/pages/reservation.html">Start Planning</a>
     </div>
-  </div>
-</main>
+  </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© 2024 Luxury Yachting. All rights reserved.</p>
-    <nav aria-label="Footer">
-      <a href="/pages/privacy.html">Privacy</a>
-      <a href="/pages/terms.html">Terms</a>
-      <a href="/pages/faq.html">FAQ</a>
-      <a href="/assets/images/FILE_2314.pdf" target="_blank">Company Info</a>
-    </nav>
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2024 Haven No. 8. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="/pages/privacy.html">Privacy</a>
+        <a href="/pages/terms.html">Terms</a>
+        <a href="/pages/faq.html">FAQ</a>
+        <a href="/assets/images/FILE_2314.pdf" target="_blank">Company Information</a>
+      </nav>
+    </div>
+  </footer>
 
-<script src="/assets/js/script.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <script>
+    // Timeline reveal animations
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    timelineItems.forEach(item => timelineObserver.observe(item));
+  </script>
 </body>
 </html>

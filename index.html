@@ -1,189 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haven No. 8 | A Private World, Impeccably Arranged</title>
-  <meta name="description" content="Seamless access to singular moments. Your sanctuary, infinitely tailored. Luxury yacht charters and bespoke experiences with full discretion." />
-  <meta property="og:title" content="Haven No. 8 | A Private World, Impeccably Arranged" />
-  <meta property="og:description" content="Seamless access to singular moments. Your sanctuary, infinitely tailored." />
-  <meta property="og:image" content="/assets/images/IMG_0888.jpeg" />
-  <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
-  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haven No. 8 - Luxury Concierge Services. Seamless access to singular moments with personalized experiences in Dubai, Miami, and beyond.">
+  <meta name="keywords" content="luxury concierge, Dubai, Miami, yacht charter, desert experiences, VIP services">
+  <meta name="author" content="Haven No. 8">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haven-no-8.com/">
+  <meta property="og:title" content="Haven No. 8 - Luxury Concierge Services">
+  <meta property="og:description" content="Seamless access to singular moments with personalized luxury experiences.">
+  <meta property="og:image" content="/assets/images/IMG_6771.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://haven-no-8.com/">
+  <meta property="twitter:title" content="Haven No. 8 - Luxury Concierge Services">
+  <meta property="twitter:description" content="Seamless access to singular moments with personalized luxury experiences.">
+  <meta property="twitter:image" content="/assets/images/IMG_6771.jpg">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/assets/css/styles.css" as="style">
+  <link rel="preload" href="/assets/js/script.js" as="script">
+  <link rel="preload" href="/assets/images/IMG_6771.jpg" as="image">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+  
+  <title>Haven No. 8 - Luxury Concierge Services</title>
 </head>
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="/">
-      <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/>
-      <span>HAVEN <span style="font-size: 0.7em; font-variant: small-caps; font-weight: 300; letter-spacing: 0.2em;">No. 8</span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link active" href="/">Home</a>
-      <a class="nav-link" href="/pages/services.html">Services</a>
-      <a class="nav-link" href="/pages/yachts.html">Yachts</a>
-      <a class="nav-link" href="/pages/about.html">About</a>
-      <a class="nav-link" href="/pages/reservation.html">Request Access</a>
-      <a class="nav-link" href="/pages/contact.html">Contact</a>
-    </nav>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
-      <span class="sr-only">Menu</span>☰
-    </button>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="figure-8-loader"></div>
   </div>
-  <nav id="mobile-nav" class="mobile-nav" hidden>
-    <a href="/pages/services.html">Services</a>
-    <a href="/pages/yachts.html">Yachts</a>
-    <a href="/pages/about.html">About</a>
-    <a href="/pages/reservation.html">Request Access</a>
-    <a href="/pages/contact.html">Contact</a>
-  </nav>
-</header>
 
-<main id="main">
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="brand">
+        <img src="/assets/logo.svg" alt="Haven No. 8 Monogram" width="28" height="28">
+        <span>HAVEN <em>No. 8</em></span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/pages/about.html" class="nav-link">About</a></li>
+        <li><a href="/pages/services.html" class="nav-link">Services</a></li>
+        <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/pages/portal.html" class="nav-link">Client Portal</a></li>
+        <li><a href="/pages/client-request.html" class="nav-link">Client Request</a></li>
+      </ul>
+      
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        Menu
+      </button>
+    </nav>
+    
+    <div id="mobile-nav" class="mobile-nav" hidden>
+      <a href="/">Home</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/portal.html">Client Portal</a>
+      <a href="/pages/client-request.html">Client Request</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
   <section class="hero">
-    <img class="hero-bg" src="/assets/images/IMG_0888.jpeg" alt="Private yacht sanctuary at sunset" aria-hidden="true"/>
-    <div class="container hero-inner">
+    <img src="/assets/images/IMG_6771.jpg" alt="Luxury yacht experience at sunset" class="hero-bg">
+    <div class="hero-inner">
       <h1 class="headline">A Private World,<br>Impeccably Arranged</h1>
-      <p class="subhead">Seamless access to singular moments. Your sanctuary, infinitely tailored. From New York to Dubai, we craft worry-free escapes with the precision of couture.</p>
+      <p class="subhead">Seamless access to singular moments. Your sanctuary, infinitely tailored.</p>
       <div class="cta-row">
-        <a class="btn btn--primary" href="/pages/reservation.html">Design My Haven</a>
-        <a class="btn btn--ghost" href="/pages/yachts.html">Begin the Arrangement</a>
+        <a href="/pages/client-request.html" class="btn btn--primary">Request Access</a>
+        <a href="/pages/services.html" class="btn btn--ghost">Our Services</a>
       </div>
       <div class="hero-badges">
-        <span>Private Access</span>
-        <span>Full Discretion</span>
-        <span>Infinite Service</span>
+        <span>Dubai</span>
+        <span>Miami</span>
+        <span>New York</span>
+        <span>Global</span>
       </div>
     </div>
   </section>
 
-  <div class="infinity-divider"></div>
+  <!-- Arch Mask SVG Definitions -->
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <clipPath id="heroArch">
+        <path d="M0 0 L400 0 L400 300 L0 300 L0 0 Z M0 60 Q200 20 400 60 L400 240 Q200 280 0 240 Z"/>
+      </clipPath>
+      <clipPath id="portraitArch">
+        <path d="M0 0 L400 0 L400 300 L0 300 L0 0 Z M0 120 Q200 80 400 120 L400 180 Q200 220 0 180 Z"/>
+      </clipPath>
+      <linearGradient id="archOverlay" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:rgba(212,175,55,0.05);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:rgba(212,175,55,0.1);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgba(212,175,55,0.05);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+  </svg>
 
-  <section class="section" id="destinations">
+  <!-- About Section -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">Exclusive Destinations</h2>
-      <p class="section-subtitle">From the Mediterranean's ancient ports to the Caribbean's turquoise embrace, each destination is a carefully curated sanctuary</p>
-      <div class="grid grid-3">
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/IMG_6983.jpeg" alt="Mediterranean sanctuary - crystal waters and ancient ports"/>
-          <h3>Mediterranean</h3>
-          <p>Crystal clear waters, ancient ports, and breathtaking sunsets await. Experience the magic of the Aegean Sea with the precision of a master craftsman.</p>
-        </article>
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/IMG_6804.jpeg" alt="Caribbean paradise - turquoise waters and pristine beaches"/>
-          <h3>Caribbean</h3>
-          <p>Turquoise waters, pristine beaches, and vibrant island culture. Your tropical sanctuary, meticulously orchestrated behind the scenes.</p>
-        </article>
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/IMG_6771.jpg" alt="French Riviera elegance - glamour and sophistication"/>
-          <h3>French Riviera</h3>
-          <p>Experience the glamour and sophistication of the world's most prestigious coastline. Luxury redefined through quiet excellence.</p>
-        </article>
+      <h2 class="section-title">Your Sanctuary, Infinitely Tailored</h2>
+      <p class="section-subtitle">Born from a career defined by relationships and high-touch personalization, Haven No. 8 creates seamless, worry-free experiences that transcend the ordinary.</p>
+      
+      <div class="infinity-divider"></div>
+      
+      <div class="grid grid-2">
+        <div>
+          <img class="card-img portrait-arch" src="/assets/images/VLA_7432.JPG" alt="Professional luxury hospitality experience" loading="lazy">
+        </div>
+        <div class="text">
+          <h3>The Journey</h3>
+          <p><strong>Born in New York City</strong> and raised between the U.S. and the Dominican Republic, I've always lived at the intersection of cultures, experiences, and people.</p>
+          
+          <p>My introduction to hospitality began in the Dominican Republic, where I hosted my own ticketed events—an early glimpse into the art of curating unforgettable experiences. That passion quickly became a lifelong pursuit.</p>
+          
+          <p>I've spent over a decade in luxury hospitality, with a career that's taken me from the nightlife scene of NYC to the high-energy world of Miami and now to one of the most prestigious addresses in the world—<strong>Atlantis The Royal in Dubai</strong>, where I currently serve as a Guest Relations Manager.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="infinity-divider"></div>
-
-  <section class="section section-alt" id="experiences">
+  <!-- Services Section -->
+  <section class="section section-alt">
     <div class="container">
       <h2 class="section-title">Signature Experiences</h2>
-      <p class="section-subtitle">Tailored adventures that create memories to last a lifetime, crafted with the attention to detail of a couturier</p>
+      <p class="section-subtitle">From private yacht charters to transformative desert adventures, we handle every detail with precision and discretion.</p>
+      
+      <div class="infinity-divider"></div>
+      
       <div class="grid grid-3">
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/VLA_7432.JPG" alt="Private yacht charter - complete privacy and personalized service"/>
-          <h3>Private Yacht Charter</h3>
-          <p>Sail in complete privacy. Catered service, curated music, and a route matched to your mood. Experience unparalleled luxury with infinite attention to detail.</p>
-        </article>
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/IMG_5117.jpeg" alt="Water sports and adventure - professional instruction and equipment"/>
-          <h3>Water Sports & Adventure</h3>
-          <p>From jet skiing to scuba diving, experience the thrill of ocean adventures with professional instructors. Every detail arranged with precision.</p>
-        </article>
-        <article class="card reveal">
-          <img class="card-img" src="/assets/images/IMG_5047.heic" alt="Fine dining experience - world-class cuisine and service"/>
-          <h3>Fine Dining & Entertainment</h3>
-          <p>Indulge in world-class cuisine prepared by award-winning chefs using the finest local ingredients. Service that anticipates your every need.</p>
-        </article>
+        <div class="card reveal">
+          <img src="/assets/images/IMG_6771.jpg" alt="Luxury yacht charter experience" class="card-img" loading="lazy">
+          <h3>Private Yacht Charters</h3>
+          <p>Exclusive access to the world's most prestigious yachts. From intimate gatherings to grand celebrations, we handle every detail with precision.</p>
+        </div>
+        
+        <div class="card reveal">
+          <img src="/assets/images/IMG_6804.jpeg" alt="Desert luxury experience" class="card-img" loading="lazy">
+          <h3>Desert Experiences</h3>
+          <p>Transformative desert adventures with luxury camping, stargazing, and cultural immersion. Experience the magic of the Arabian desert.</p>
+        </div>
+        
+        <div class="card reveal">
+          <img src="/assets/images/IMG_6983.jpeg" alt="Nightlife and entertainment" class="card-img" loading="lazy">
+          <h3>Nightlife & Entertainment</h3>
+          <p>Access to the most exclusive clubs, restaurants, and entertainment venues. VIP treatment with complete discretion and privacy.</p>
+        </div>
+      </div>
+      
+      <div class="cta-banner">
+        <div>
+          <h3>Ready to Begin Your Journey?</h3>
+          <p class="muted">Let's craft your perfect experience. Contact us to start designing your sanctuary adventure.</p>
+        </div>
+        <a href="/pages/client-request.html" class="btn btn--primary">Request Access</a>
       </div>
     </div>
   </section>
 
-  <div class="infinity-divider"></div>
-
-  <section class="section" id="gallery">
+  <!-- Stats Section -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <p class="section-subtitle">A glimpse into the sanctuary experiences we create—calm, kinetic, and perfectly balanced</p>
+      <div class="infinity-divider"></div>
+      
       <div class="grid grid-4">
-        <img class="card-img reveal" src="/assets/images/IMG_8284.heic" alt="Luxury yacht interior - sophisticated comfort"/>
-        <img class="card-img reveal" src="/assets/images/IMG_8634.heic" alt="Professional crew - discreet, attentive service"/>
-        <img class="card-img reveal" src="/assets/images/IMG_6771.jpg" alt="Exclusive destination - private access"/>
-        <img class="card-img reveal" src="/assets/images/IMG_6804.jpeg" alt="Tropical sanctuary - pristine natural beauty"/>
+        <div class="stat">
+          <h4>10+</h4>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat">
+          <h4>500+</h4>
+          <p>Curated Experiences</p>
+        </div>
+        <div class="stat">
+          <h4>3</h4>
+          <p>Global Cities</p>
+        </div>
+        <div class="stat">
+          <h4>100%</h4>
+          <p>Discretion</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="infinity-divider"></div>
-
-  <section class="section section-alt" id="about">
+  <!-- Contact Section -->
+  <section class="section section-alt">
     <div class="container">
+      <h2 class="section-title">Begin the Arrangement</h2>
+      <p class="section-subtitle">Ready to experience seamless luxury? Let's start crafting your perfect moment.</p>
+      
+      <div class="infinity-divider"></div>
+      
       <div class="grid grid-2">
+        <div class="card protected-card">
+          <h3>Send a Message</h3>
+          <form class="form" action="#">
+            <label>
+              <span>Name *</span>
+              <input type="text" name="name" required placeholder="Your full name" />
+            </label>
+            
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" required placeholder="your@email.com" />
+            </label>
+            
+            <label>
+              <span>Message *</span>
+              <textarea name="message" required placeholder="Tell us about your vision..." rows="4"></textarea>
+            </label>
+            
+            <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+          </form>
+        </div>
+        
         <div class="text">
-          <h2>About Haven No. 8</h2>
-          <p><strong>Excellence through relationships.</strong> From New York to Miami to Dubai, our journey has been defined by high-touch personalization and the art of the impossible.</p>
-          <p>Our philosophy: craft deeply personal experiences that feel effortless, yet are meticulously orchestrated behind the scenes. Every detail—from the champagne temperature to the playlist—is considered with the precision of a master craftsman.</p>
-          <div class="grid grid-3" style="margin-top: var(--space-6);">
-            <div class="stat">
-              <h4>500+</h4>
-              <p>Curated Experiences</p>
-            </div>
-            <div class="stat">
-              <h4>50+</h4>
-              <p>Global Destinations</p>
-            </div>
-            <div class="stat">
-              <h4>15+</h4>
-              <p>Years of Excellence</p>
-            </div>
-          </div>
+          <h3>Direct Contact</h3>
+          <p><strong>Email:</strong> <a href="mailto:hello@haven-no-8.com" class="hover-underline">hello@haven-no-8.com</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" class="hover-underline">+1 (234) 567-890</a></p>
+          <p><strong>Signal:</strong> Available for secure communication</p>
+          
+          <h3>Global Presence</h3>
+          <p><strong>Dubai:</strong> Atlantis The Royal</p>
+          <p><strong>Miami:</strong> South Beach & Brickell</p>
+          <p><strong>New York:</strong> Manhattan & Brooklyn</p>
+          
+          <p class="muted">Response time: Within 24 hours</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p>&copy; 2024 Haven No. 8. All rights reserved.</p>
         </div>
         <div>
-          <img class="card-img" src="/assets/images/IMG_8634.heic" alt="Our team of luxury experience curators"/>
+          <a href="/pages/contact.html">Contact</a>
+          <span style="margin: 0 16px; color: var(--pearl);">•</span>
+          <a href="/pages/portal.html">Client Portal</a>
+          <span style="margin: 0 16px; color: var(--pearl);">•</span>
+          <a href="/pages/client-request.html">Request Access</a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <div class="infinity-divider"></div>
-
-  <section class="section" id="cta">
-    <div class="container cta-banner">
-      <div>
-        <h2 class="section-title">Ready for Your Sanctuary?</h2>
-        <p class="muted">Tell us your vision—we'll handle the rest. Contact our experience curators to begin crafting your perfect escape.</p>
-      </div>
-      <a class="btn btn--primary" href="/pages/reservation.html">Request Access</a>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© 2024 Haven No. 8. All rights reserved.</p>
-    <nav aria-label="Footer">
-      <a href="/pages/privacy.html">Privacy</a>
-      <a href="/pages/terms.html">Terms</a>
-      <a href="/pages/faq.html">FAQ</a>
-      <a href="/assets/images/FILE_2314.pdf" target="_blank">Company Information</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="/assets/js/script.js"></script>
+  <!-- Scripts -->
+  <script src="/assets/js/script.js"></script>
+  
+  <!-- Performance monitoring -->
+  <script>
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      if ('performance' in window) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+      }
+    });
+    
+    // Error tracking
+    window.addEventListener('error', (e) => {
+      console.warn('Resource error:', e.target.src || e.target.href);
+    });
+  </script>
 </body>
 </html>

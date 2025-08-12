@@ -1,0 +1,30 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Arch mask for hero images -->
+    <clipPath id="heroArch">
+      <path d="M0 0 L400 0 L400 300 L0 300 L0 0 Z M0 50 Q200 0 400 50 L400 250 Q200 300 0 250 Z"/>
+    </clipPath>
+    
+    <!-- Arch mask for portraits -->
+    <clipPath id="portraitArch">
+      <path d="M0 0 L400 0 L400 300 L0 300 L0 0 Z M0 100 Q200 50 400 100 L400 200 Q200 250 0 200 Z"/>
+    </clipPath>
+    
+    <!-- Subtle arch overlay -->
+    <linearGradient id="archOverlay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(212,175,55,0.05);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(212,175,55,0.1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(212,175,55,0.05);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hero arch mask -->
+  <g id="heroArchMask">
+    <rect width="400" height="300" fill="url(#archOverlay)" clip-path="url(#heroArch)"/>
+  </g>
+  
+  <!-- Portrait arch mask -->
+  <g id="portraitArchMask">
+    <rect width="400" height="300" fill="url(#archOverlay)" clip-path="url(#portraitArch)"/>
+  </g>
+</svg>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Request — Haven No. 8</title>
+  <meta name="description" content="Submit your luxury experience request. We'll craft a personalized proposal for your perfect escape." />
+  <meta property="og:title" content="Client Request — Haven No. 8" />
+  <meta property="og:description" content="Submit your luxury experience request. We'll craft a personalized proposal for your perfect escape." />
+  <meta property="og:image" content="/assets/images/IMG_0888.jpeg" />
+  <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/>
+      <span>HAVEN <span style="font-size: 0.7em; font-variant: small-caps; font-weight: 300; letter-spacing: 0.2em;">No. 8</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/pages/services.html">Services</a>
+      <a class="nav-link" href="/pages/about.html">About</a>
+      <a class="nav-link" href="/pages/reservation.html">Request Access</a>
+      <a class="nav-link" href="/pages/portal.html">Client Portal</a>
+      <a class="nav-link" href="/pages/contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="sr-only">Menu</span>☰
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" hidden>
+    <a href="/pages/services.html">Services</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/reservation.html">Request Access</a>
+    <a href="/pages/portal.html">Client Portal</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="text">
+        <h1>Client Request</h1>
+        <p><strong>Tell us your vision—we'll craft the rest.</strong></p>
+        <p>Submit your luxury experience request and we'll create a personalized proposal that matches your exact specifications. Every detail will be considered with infinite attention.</p>
+        
+        <div style="margin-top: var(--space-6);">
+          <h3>What We Handle</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Flights & transportation</span>
+            </li>
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Hotel accommodations</span>
+            </li>
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Private yacht charters</span>
+            </li>
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Desert experiences</span>
+            </li>
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Nightlife & entertainment</span>
+            </li>
+            <li style="margin-bottom: var(--space-2); display: flex; align-items: center; gap: var(--space-2);">
+              <span style="color: var(--champagne); font-size: 1.2rem;">✓</span>
+              <span>Professional photography</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div style="margin-top: var(--space-6);">
+          <h3>Response Time</h3>
+          <p>We'll respond with a detailed proposal within 24 hours. Your request will be handled with complete discretion and the highest level of attention to detail.</p>
+        </div>
+      </div>
+      
+      <div>
+        <div class="card" style="border-radius: var(--radius-haven);">
+          <h2>Experience Request</h2>
+          <form class="form" action="#">
+            <label>
+              <span>Client Name *</span>
+              <input type="text" name="client-name" required placeholder="Your full name" />
+            </label>
+            
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" required placeholder="your@email.com" />
+            </label>
+            
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="+1 555 123 4567" />
+            </label>
+            
+            <label>
+              <span>Number of Guests *</span>
+              <input type="number" name="guests" min="1" max="20" required placeholder="8" />
+            </label>
+            
+            <label>
+              <span>Destination *</span>
+              <select name="destination" required>
+                <option value="">Select Destination</option>
+                <option value="dubai">Dubai</option>
+                <option value="miami">Miami</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="french-riviera">French Riviera</option>
+                <option value="other">Other (specify below)</option>
+              </select>
+            </label>
+            
+            <label>
+              <span>Travel Dates *</span>
+              <input type="text" name="travel-dates" required placeholder="e.g., November 9-13, 2024" />
+            </label>
+            
+            <label>
+              <span>Flights Required</span>
+              <textarea name="flights" rows="2" placeholder="e.g., Tel Aviv to Dubai (including luggage)"></textarea>
+            </label>
+            
+            <label>
+              <span>Hotel Preferences</span>
+              <textarea name="hotel" rows="2" placeholder="e.g., Hilton (not in the Marina)"></textarea>
+            </label>
+            
+            <label>
+              <span>Activities Requested</span>
+              <textarea name="activities" rows="4" placeholder="e.g., Jet ski tickets, private yacht for all-girls party, female DJ, full day in desert with camping and photographer"></textarea>
+            </label>
+            
+            <label>
+              <span>Nightlife Preferences</span>
+              <textarea name="nightlife" rows="3" placeholder="e.g., Different bar/club each evening, easy fun environment for girls to enjoy"></textarea>
+            </label>
+            
+            <label>
+              <span>Special Requirements</span>
+              <textarea name="special-requirements" rows="3" placeholder="Any specific preferences, dietary requirements, or special requests"></textarea>
+            </label>
+            
+            <button type="submit" class="btn btn--primary btn--block">Submit Request</button>
+            
+            <p class="form-note">* Required fields. We'll contact you within 24 hours with a detailed proposal.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2024 Haven No. 8. All rights reserved.</p>
+    <nav aria-label="Footer">
+      <a href="/pages/privacy.html">Privacy</a>
+      <a href="/pages/terms.html">Terms</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/assets/images/FILE_2314.pdf" target="_blank">Company Information</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/script.js"></script>
+</body>
+</html>
