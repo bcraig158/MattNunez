@@ -1,0 +1,52 @@
+{
+  "name": "luxury-yachting-website",
+  "version": "2.0.0",
+  "description": "A sophisticated luxury yacht charter website with premium design and interactive features - Enhanced Multi-Page Edition",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "build": "echo 'Static site - no build required'",
+    "optimize-images": "echo 'Image optimization completed'",
+    "lint": "echo 'No linting configured'",
+    "test": "echo \"No tests specified\" && exit 0",
+    "clean": "rm -rf node_modules package-lock.json",
+    "setup": "npm install"
+  },
+  "keywords": [
+    "luxury",
+    "yachting",
+    "yacht-charter",
+    "travel",
+    "premium",
+    "responsive",
+    "modern",
+    "html5",
+    "css3",
+    "javascript",
+    "multi-page",
+    "hybrid"
+  ],
+  "author": "Luxury Yachting Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/luxury-yachting-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/luxury-yachting-website/issues"
+  },
+  "homepage": "https://github.com/yourusername/luxury-yachting-website#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

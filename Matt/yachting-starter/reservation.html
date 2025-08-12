@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Reservation — Haven No. 8</title>
+  <meta name="description" content="Send a request—dates, guests, destination, and desired experiences." />
+  <meta property="og:title" content="Quick Reservation — Haven No. 8" />
+  <meta property="og:description" content="Send a request—dates, guests, destination, and desired experiences." />
+  <meta property="og:image" content="/assets/hero.jpg" />
+  <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head><body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/><span>Haven No. 8</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/services.html">Services</a>
+      <a class="nav-link" href="/yachts.html">Yachts</a>
+      <a class="nav-link" href="/about.html">About</a>
+      <a class="nav-link active" href="/reservation.html">Quick Reservation</a>
+      <a class="nav-link" href="/contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Menu</span>☰</button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" hidden>
+    <a href="/services.html">Services</a>
+    <a href="/yachts.html">Yachts</a>
+    <a href="/about.html">About</a>
+    <a href="/reservation.html">Quick Reservation</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+<main class="section"><div class="container">
+  <h1>Quick Reservation</h1>
+  <form class="card form" method="POST" action="#">
+    <div class="grid grid-2">
+      <label><span>Full name</span><input type="text" name="name" required placeholder="Your name"/></label>
+      <label><span>Email</span><input type="email" name="email" required placeholder="you@example.com"/></label>
+      <label><span>Phone</span><input type="tel" name="phone" placeholder="+1 555 000 0000"/></label>
+      <label><span>Destination</span><input type="text" name="destination" placeholder="Dubai / Abu Dhabi / ..." /></label>
+      <label><span>Start date</span><input type="date" name="start" required /></label>
+      <label><span>End date</span><input type="date" name="end" required /></label>
+      <label><span>Guests</span><input type="number" name="guests" min="1" value="2"/></label>
+      <label><span>Preferred yacht</span><input type="text" name="yacht" id="yachtField" placeholder="(optional)"/></label>
+    </div>
+    <label><span>Request details</span><textarea name="request" rows="6" placeholder="Jet skis, private DJ, desert camp, photographer, BBQ, bars/clubs each night..."></textarea></label>
+    <div class="grid grid-2">
+      <label><span>Budget (USD)</span><input type="text" name="budget" placeholder="e.g., 5,000–10,000"/></label>
+      <label><span>How did you hear about us?</span><input type="text" name="ref" placeholder="Referral/Instagram/Other"/></label>
+    </div>
+    <button class="btn btn--primary" type="submit">Send request</button>
+    <p class="form-note">Demo mode. Set <code>action</code> to your endpoint to enable submissions.</p>
+  </form>
+</div></main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2025 Haven No. 8. All rights reserved.</p>
+    <nav aria-label="Footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/faq.html">FAQ</a>
+    </nav>
+  </div>
+</footer>
+<script src="/script.js"></script>
+</body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Reservation — Luxury Yachting</title>
+  <meta name="description" content="Plan your luxury yacht experience. Tell us dates, guests, and must‑haves—we'll craft the rest." />
+  <meta property="og:title" content="Quick Reservation — Luxury Yachting" />
+  <meta property="og:description" content="Plan your luxury yacht experience. Tell us dates, guests, and must‑haves—we'll craft the rest." />
+  <meta property="og:image" content="/assets/images/IMG_0888.jpeg" />
+  <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/logo.svg" width="28" height="28" alt="" aria-hidden="true"/>
+      <span>LUXURY YACHTING</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/pages/services.html">Services</a>
+      <a class="nav-link" href="/pages/yachts.html">Yachts</a>
+      <a class="nav-link" href="/pages/about.html">About</a>
+      <a class="nav-link active" href="/pages/reservation.html">Quick Reservation</a>
+      <a class="nav-link" href="/pages/contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="sr-only">Menu</span>☰
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" hidden>
+    <a href="/pages/services.html">Services</a>
+    <a href="/pages/yachts.html">Yachts</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/reservation.html">Quick Reservation</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="text">
+        <h1>Plan Your Journey</h1>
+        <p><strong>Tell us dates, guests, and must‑haves—we'll craft the rest.</strong></p>
+        <p>Contact our luxury yacht specialists to begin planning your perfect voyage. We'll work with you to create a customized experience that matches your dreams.</p>
+        
+        <div style="margin-top: 3rem;">
+          <h3>What's Included</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+              <span style="color: var(--accent); font-size: 1.5rem;">✓</span>
+              <span>Personalized itinerary planning</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+              <span style="color: var(--accent); font-size: 1.5rem;">✓</span>
+              <span>Professional crew and catering</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+              <span style="color: var(--accent); font-size: 1.5rem;">✓</span>
+              <span>Luxury accommodations</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+              <span style="color: var(--accent); font-size: 1.5rem;">✓</span>
+              <span>24/7 concierge support</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+          <h3>Contact Information</h3>
+          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+          <p><strong>Email:</strong> info@luxuryyachting.com</p>
+          <p><strong>Response Time:</strong> Within 24 hours</p>
+        </div>
+      </div>
+      
+      <div>
+        <form class="form" action="#">
+          <h2>Quick Reservation</h2>
+          
+          <label>
+            <span>Full Name *</span>
+            <input type="text" name="name" required />
+          </label>
+          
+          <label>
+            <span>Email *</span>
+            <input type="email" name="email" required />
+          </label>
+          
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" />
+          </label>
+          
+          <label>
+            <span>Preferred Destination *</span>
+            <select name="destination" required>
+              <option value="">Select Destination</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="caribbean">Caribbean</option>
+              <option value="french-riviera">French Riviera</option>
+              <option value="dubai">Dubai</option>
+              <option value="other">Other (specify below)</option>
+            </select>
+          </label>
+          
+          <label>
+            <span>Number of Guests *</span>
+            <input type="number" name="guests" min="1" max="20" required />
+          </label>
+          
+          <label>
+            <span>Start Date *</span>
+            <input type="date" name="start-date" id="start-date" required />
+          </label>
+          
+          <label>
+            <span>Duration (Days) *</span>
+            <input type="number" name="duration" id="duration" min="1" max="30" required />
+          </label>
+          
+          <label>
+            <span>Budget Range</span>
+            <select name="budget">
+              <option value="">Select Budget Range</option>
+              <option value="50k-100k">$50,000 - $100,000</option>
+              <option value="100k-250k">$100,000 - $250,000</option>
+              <option value="250k-500k">$250,000 - $500,000</option>
+              <option value="500k+">$500,000+</option>
+            </select>
+          </label>
+          
+          <label>
+            <span>Special Requirements</span>
+            <textarea name="message" rows="4" placeholder="Tell us about any special requests, dietary requirements, or specific experiences you're looking for..."></textarea>
+          </label>
+          
+          <button type="submit" class="btn btn--primary btn--block">Request Quote</button>
+          
+          <p class="form-note">* Required fields. We'll contact you within 24 hours to discuss your requirements in detail.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2024 Luxury Yachting. All rights reserved.</p>
+    <nav aria-label="Footer">
+      <a href="/pages/privacy.html">Privacy</a>
+      <a href="/pages/terms.html">Terms</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/assets/images/FILE_2314.pdf" target="_blank">Company Info</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/script.js"></script>
+</body>
+</html>
