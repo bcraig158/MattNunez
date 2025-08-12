@@ -1,4 +1,4 @@
-// ===== LUXURY YACHTING WEBSITE - ENHANCED SCRIPT =====
+// ===== HAVEN NO. 8 - LUXURY YACHTING WEBSITE =====
 
 // Mobile navigation toggle
 const toggle = document.querySelector('.nav-toggle');
@@ -23,7 +23,7 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Header background on scroll
+// Header background on scroll with refined transitions
 window.addEventListener('scroll', () => {
   const header = document.querySelector('.site-header');
   if (header) {
@@ -32,7 +32,7 @@ window.addEventListener('scroll', () => {
       header.style.borderBottom = '1px solid rgba(212, 175, 55, 0.2)';
     } else {
       header.style.background = 'rgba(10, 10, 10, 0.95)';
-      header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+      header.style.borderBottom = '1px solid rgba(245, 243, 240, 0.1)';
     }
   }
 });
@@ -76,7 +76,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Reservation form handling
+// Sophisticated form handling
 const reservationForm = document.querySelector('.form');
 if (reservationForm) {
   reservationForm.addEventListener('submit', function(e) {
@@ -86,12 +86,12 @@ if (reservationForm) {
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
     
-    // Basic validation
+    // Enhanced validation
     const requiredFields = ['name', 'email'];
     const missingFields = requiredFields.filter(field => !data[field]);
     
     if (missingFields.length > 0) {
-      showNotification('Please fill in all required fields.', 'error');
+      showNotification('Please complete all required fields.', 'error');
       return;
     }
     
@@ -100,12 +100,12 @@ if (reservationForm) {
       return;
     }
     
-    // Simulate form submission
-    showNotification('Processing your luxury request...', 'info');
+    // Simulate sophisticated form submission
+    showNotification('Crafting your sanctuary experience...', 'info');
     
-    // Simulate API call
+    // Simulate API call with refined timing
     setTimeout(() => {
-      showNotification('Request submitted successfully! Our team will contact you within 24 hours.', 'success');
+      showNotification('Your request has been received. Our experience curators will contact you within 24 hours.', 'success');
       this.reset();
     }, 3000);
   });
@@ -117,7 +117,7 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// Notification system
+// Refined notification system
 function showNotification(message, type = 'info') {
   // Remove existing notifications
   const existingNotification = document.querySelector('.notification');
@@ -135,12 +135,20 @@ function showNotification(message, type = 'info') {
     </div>
   `;
   
-  // Add styles
+  // Enhanced styling with brand colors
+  const colors = {
+    success: { bg: '#4a7c59', border: '#3d6b4a' }, // Jade 8
+    error: '#d32f2f',
+    info: '#1976d2'
+  };
+  
+  const color = colors[type] || colors.info;
+  
   notification.style.cssText = `
     position: fixed;
     top: 100px;
     right: 20px;
-    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+    background: ${typeof color === 'object' ? color.bg : color};
     color: white;
     padding: 1.5rem 2rem;
     border-radius: 8px;
@@ -149,7 +157,9 @@ function showNotification(message, type = 'info') {
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     max-width: 450px;
-    border-left: 4px solid ${type === 'success' ? '#45a049' : type === 'error' ? '#da190b' : '#1976d2'};
+    border-left: 4px solid ${typeof color === 'object' ? color.border : color};
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
   `;
   
   // Add to page
@@ -176,22 +186,22 @@ function showNotification(message, type = 'info') {
   }, 6000);
 }
 
-// Parallax effect for hero section
+// Refined parallax effect for hero section
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   const hero = document.querySelector('.hero');
   if (hero) {
-    const rate = scrolled * -0.3;
+    const rate = scrolled * -0.2; // More subtle movement
     hero.style.transform = `translateY(${rate}px)`;
   }
 });
 
-// Add loading animation
+// Sophisticated loading animation
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 
-// Add CSS for loading state
+// Enhanced loading state with brand messaging
 const loadingStyles = document.createElement('style');
 loadingStyles.textContent = `
   body:not(.loaded) {
@@ -213,25 +223,46 @@ loadingStyles.textContent = `
   }
   
   body:not(.loaded)::after {
-    content: 'LUXURY YACHTING';
+    content: 'HAVEN No. 8';
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #d4af37;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 300;
     font-family: 'Playfair Display', serif;
-    letter-spacing: 4px;
+    letter-spacing: 0.2em;
     z-index: 10000;
+  }
+  
+  /* Infinity loading animation */
+  body:not(.loaded)::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-top: 2px solid #d4af37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10001;
+  }
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
 `;
 document.head.appendChild(loadingStyles);
 
-// Card hover effects
+// Refined card hover effects
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-10px) scale(1.02)';
+    this.style.transform = 'translateY(-4px) scale(1.01)';
   });
   
   card.addEventListener('mouseleave', function() {
@@ -246,7 +277,7 @@ if (yacht && document.getElementById('yachtField')) {
   document.getElementById('yachtField').value = yacht;
 }
 
-// Demo form handler for forms without action
+// Sophisticated form handler for forms without action
 document.addEventListener('submit', (e) => {
   const form = e.target.closest('form[action="#"]');
   if (!form) return;
@@ -259,7 +290,7 @@ document.addEventListener('submit', (e) => {
   showNotification('Demo mode. Form data: ' + JSON.stringify(data, null, 2), 'info');
 });
 
-// Counter animation for statistics
+// Enhanced counter animation for statistics
 function animateCounter(element, target, duration = 2500) {
   let start = 0;
   const increment = target / (duration / 16);
@@ -293,16 +324,16 @@ document.querySelectorAll('.stat').forEach(stat => {
   statsObserver.observe(stat);
 });
 
-// Dynamic pricing calculation (for reservation forms)
+// Enhanced pricing calculation with brand sophistication
 function calculateEstimatedPrice(guests, duration, destination) {
-  const basePrice = 5000; // Base price per day
+  const basePrice = 8000; // Elevated base price for luxury positioning
   const guestMultiplier = Math.max(1, guests / 8); // Price increases with more guests
   const durationDiscount = duration > 7 ? 0.9 : 1; // 10% discount for 7+ days
   const destinationMultiplier = {
-    'mediterranean': 1.2,
-    'caribbean': 1.1,
-    'french-riviera': 1.3,
-    'dubai': 1.4
+    'mediterranean': 1.3,
+    'caribbean': 1.2,
+    'french-riviera': 1.4,
+    'dubai': 1.5
   }[destination] || 1;
   
   return Math.round(basePrice * guestMultiplier * duration * durationDiscount * destinationMultiplier);
@@ -321,7 +352,7 @@ function updatePriceEstimate() {
     
     if (guests > 0 && duration > 0 && destination) {
       const estimatedPrice = calculateEstimatedPrice(guests, duration, destination);
-      showNotification(`Estimated price: $${estimatedPrice.toLocaleString()} USD`, 'info');
+      showNotification(`Estimated investment: $${estimatedPrice.toLocaleString()} USD`, 'info');
     }
   }
 }
@@ -332,7 +363,7 @@ if (guestsInput && durationInput && destinationSelect) {
   destinationSelect.addEventListener('change', updatePriceEstimate);
 }
 
-// Date picker enhancement for reservation forms
+// Enhanced date picker for reservation forms
 const startDateInput = document.getElementById('start-date');
 if (startDateInput) {
   const today = new Date();
@@ -346,7 +377,7 @@ if (startDateInput) {
   });
 }
 
-// FAQ accordion functionality
+// Sophisticated FAQ accordion functionality
 document.querySelectorAll('.faq').forEach(faq => {
   const summary = faq.querySelector('summary');
   if (summary) {
@@ -357,7 +388,7 @@ document.querySelectorAll('.faq').forEach(faq => {
   }
 });
 
-// Smooth reveal animations for sections
+// Enhanced reveal animations for sections
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -370,7 +401,7 @@ document.querySelectorAll('section').forEach(section => {
   revealObserver.observe(section);
 });
 
-// Add reveal animation CSS
+// Refined reveal animation CSS
 const revealStyles = document.createElement('style');
 revealStyles.textContent = `
   section {
@@ -391,5 +422,19 @@ revealStyles.textContent = `
 `;
 document.head.appendChild(revealStyles);
 
-// Console log for successful loading
-console.log('Luxury Yachting website loaded successfully! 🛥️✨');
+// Infinity divider animation
+document.querySelectorAll('.infinity-divider').forEach(divider => {
+  const line = divider.querySelector('::before');
+  if (line) {
+    divider.addEventListener('mouseenter', () => {
+      divider.style.transform = 'scaleX(1.1)';
+    });
+    
+    divider.addEventListener('mouseleave', () => {
+      divider.style.transform = 'scaleX(1)';
+    });
+  }
+});
+
+// Sophisticated console log
+console.log('Haven No. 8 - A private world, impeccably arranged 🛥️✨');
